@@ -29,7 +29,7 @@ plugins {
 
 apply plugin: 'forge'
 
-version = "1.2.0"
+version = "2.0.0"
 group = "me.xtrm.delta" 
 archivesBaseName = "DeltaAPI"
 
@@ -42,22 +42,9 @@ minecraft {
     runDir = "eclipse"
 }
 
-repositories {
-    mavenLocal()
-    mavenCentral()
-    jcenter()
-    
-    maven {
-		url = "https://atlaspluginloader.github.io/maven/" // APL-Core
-	}
-}
-
+repositories {}
 dependencies {
-	compile("me.xtrm.atlaspluginloader:apl-core:1.0.0") { // APL-Core
-		exclude module: "asm-debug-all" // exclude useless libs
-		exclude module: "log4j-api"
-		exclude module: "log4j-core"
-	}
+	compile "org.yaml:snakeyaml:1.21"
 }
 
 publishing.publications {
@@ -66,7 +53,7 @@ publishing.publications {
     }
 }
 
-task unobfJar(type: Jar){
+task unobfJar(type: Jar) {
 	baseName = archivesBaseName + "-deobf";
 	with jar
 }

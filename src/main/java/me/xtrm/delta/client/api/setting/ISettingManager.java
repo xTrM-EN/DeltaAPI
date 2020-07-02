@@ -2,14 +2,17 @@ package me.xtrm.delta.client.api.setting;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import me.xtrm.delta.client.api.module.IModule;
 
 public interface ISettingManager {
 	
-	void addSetting(ISetting setting);
-	
 	List<ISetting> getSettings();
+	
+	default void registerSettings(ISetting... settings) {
+		Stream.of(settings).forEach(getSettings()::add);
+	}
 	
 	default List<ISetting> getSettingsForModule(IModule mod) {
 		return getSettings().stream().filter(s -> s.getParent() == mod).collect(Collectors.toList());

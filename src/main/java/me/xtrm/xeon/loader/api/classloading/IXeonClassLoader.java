@@ -6,6 +6,9 @@ public interface IXeonClassLoader {
 
 	Class<?> defineClass(ClassWriter classWriter);
 	
+	void registerTransformers(String... transformerClasses);
+	void registerTransformers(Object... transformers);
+	
 	void enableClassWrapping();
 	void disableClassWrapping();
 	

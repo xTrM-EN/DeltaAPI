@@ -10,7 +10,6 @@ public interface IDeltaLoader {
 	void initialize();
 	
 	IEventManager getEventManager();
-	
 	IPluginManager getPluginManager();
 	ILibraryManager getLibraryManager();
 	ITransformerManager getTransformerManager();

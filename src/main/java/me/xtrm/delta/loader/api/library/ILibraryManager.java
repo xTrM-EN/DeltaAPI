@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface ILibraryManager {
 	
-	void loadLibraries();
+	void init();
 	void loadLibrary(ILibrary library);
 	
 	List<ILibrary> getLoadedLibraries();

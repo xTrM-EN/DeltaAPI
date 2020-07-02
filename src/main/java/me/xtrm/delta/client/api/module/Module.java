@@ -77,8 +77,8 @@ public class Module implements IModule {
 			iDisable();
 	}
 
-	public void addSetting(ISetting setting) {
-		DeltaAPI.getClient().getSettingManager().addSetting(setting);
+	public void registerSettings(ISetting... settings) {
+		DeltaAPI.getClient().getSettingManager().registerSettings(settings);
 	}
 
 	public ISetting getSetting(String name) {
@@ -90,8 +90,18 @@ public class Module implements IModule {
 		return getSetting("Mode") != null ? getSetting("Mode").getComboValue() : "none";
 	}
 	
-	private void iEnable() { LoaderProvider.getLoader().getEventManager().register(this); if(anim == -1) anim = 0; onEnable(); }
-	private void iDisable() { LoaderProvider.getLoader().getEventManager().unregister(this); onDisable(); }
+	private void iEnable() { 
+		LoaderProvider.getLoader().getEventManager().register(this); 
+		if(anim == -1) 
+			anim = 0; 
+		onEnable(); 
+	}
+	
+	private void iDisable() { 
+		LoaderProvider.getLoader().getEventManager().unregister(this); 
+		onDisable(); 
+	}
+	
 	private void iToggle() { onToggle(); }
 	
 	public void onEnable() {}

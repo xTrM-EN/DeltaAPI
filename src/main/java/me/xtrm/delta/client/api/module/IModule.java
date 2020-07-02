@@ -32,7 +32,7 @@ public interface IModule {
 	void onToggle();
 	void onDisable();
 	
-	void addSetting(ISetting setting);
+	void registerSettings(ISetting... settings);
 	ISetting getSetting(String name);
 
 }

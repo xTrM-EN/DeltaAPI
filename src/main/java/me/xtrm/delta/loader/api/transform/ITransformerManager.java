@@ -12,6 +12,14 @@ import net.minecraft.launchwrapper.IClassTransformer;
 
 public interface ITransformerManager extends IClassTransformer {
 	
+	void initialize();
+	
+	default void registerTransformers(ITransformer... transformers) {
+		Stream.of(transformers).forEach(getTransformers()::add);
+	}
+	
+	List<ITransformer> getTransformers();
+	
 	@Override
 	default byte[] transform(String name, String transformedName, byte[] basicClass) {
 		Stream<ITransformer> stream = getTransformers().stream();
@@ -30,8 +38,5 @@ public interface ITransformerManager extends IClassTransformer {
 		node.accept(cw);
 		return cw.toByteArray();
 	}
-	
-	void registerTransformers(ITransformer... transformers);
-	List<ITransformer> getTransformers();
 
 }

@@ -5,7 +5,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import me.xtrm.delta.loader.api.transform.ITransformer;
+import me.xtrm.xeon.loader.api.transform.ITransformer;
 
 @Retention(RetentionPolicy.RUNTIME) 
 @Target(ElementType.TYPE)

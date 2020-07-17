@@ -3,6 +3,10 @@ package me.xtrm.delta.loader.api.library;
 import java.io.File;
 import java.util.regex.Pattern;
 
+/**
+ * Base interface for a Maven Library
+ * @author xTrM_
+ */
 public interface ILibrary {
 
 	String getLibraryString();

@@ -29,7 +29,7 @@ plugins {
 
 apply plugin: 'forge'
 
-version = "2.0.1"
+version = "2.0.3"
 group = "me.xtrm.delta" 
 archivesBaseName = "DeltaAPI"
 
@@ -39,12 +39,17 @@ compileJava.options.encoding = 'UTF-8'
 
 minecraft {
     version = "1.7.10-10.13.4.1614-1.7.10"
-    runDir = "eclipse"
+    runDir = "run"
 }
 
-repositories {}
+repositories {
+	maven { url 'https://jitpack.io' }
+}
+
 dependencies {
-	compile "org.yaml:snakeyaml:1.21"
+	implementation 'org.yaml:snakeyaml:1.21'
+	
+	implementation 'com.github.Hippah:LWJEB:5.0.0'
 }
 
 publishing.publications {

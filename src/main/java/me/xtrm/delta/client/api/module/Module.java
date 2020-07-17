@@ -91,14 +91,14 @@ public class Module implements IModule {
 	}
 	
 	private void iEnable() { 
-		LoaderProvider.getLoader().getEventManager().register(this); 
+		LoaderProvider.getLoader().getEventManager().subscribe(this); 
 		if(anim == -1) 
 			anim = 0; 
 		onEnable(); 
 	}
 	
 	private void iDisable() { 
-		LoaderProvider.getLoader().getEventManager().unregister(this); 
+		LoaderProvider.getLoader().getEventManager().unsubscribe(this); 
 		onDisable(); 
 	}
 	

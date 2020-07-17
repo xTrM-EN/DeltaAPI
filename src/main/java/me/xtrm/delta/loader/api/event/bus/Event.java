@@ -8,7 +8,7 @@ public class Event implements IEvent {
 	
 	@Override
 	public void call() {
-		LoaderProvider.getLoader().getEventManager().call(this);
+		LoaderProvider.getLoader().getEventManager().post(this).dispatch();;
 	}
 
 	@Override

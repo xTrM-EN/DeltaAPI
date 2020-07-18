@@ -1,5 +1,9 @@
 package me.xtrm.delta.client.api.module;
 
+/**
+ * Enum for the module categories
+ * @author xTrM_
+ */
 public enum Category { 
 	COMBAT("Combat"), 
 	MOVEMENT("Movement"),
@@ -7,7 +11,7 @@ public enum Category {
 	RENDER("Render"), 
 	WORLD("World"), 
 	MISC("Misc"), 
-	HIDDEN("Hidden", true);
+	HIDDEN("Hidden", false);
 	
 	private String name;
 	private boolean visible;

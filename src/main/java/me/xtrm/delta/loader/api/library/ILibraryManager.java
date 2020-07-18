@@ -14,7 +14,7 @@ public interface ILibraryManager {
 	/** Load a library */
 	void loadLibrary(ILibrary library);
 	
-	/** Get loaded libraries */
-	List<ILibrary> getLoadedLibraries();
+	/** Get all libraries */
+	List<ILibrary> getLibraries();
 
 }

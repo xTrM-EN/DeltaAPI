@@ -2,12 +2,17 @@ package me.xtrm.delta.loader.api.event.bus;
 
 import me.xtrm.delta.loader.api.LoaderProvider;
 
+/**
+ * Simple implementation for {@link IEvent}
+ * @author xTrM_
+ */
 public class Event implements IEvent {
 
+	/** Wheather or not the event is cancelled */
 	private boolean cancelled;
 	
 	@Override
-	public void call() {
+	public final void call() {
 		LoaderProvider.getLoader().getEventManager().post(this).dispatch();;
 	}
 
@@ -18,6 +23,9 @@ public class Event implements IEvent {
 
 	@Override
 	public void setCancelled(boolean cancelled) {
+		if(!isCancellable()) {
+			throw new UnsupportedOperationException("Cannot cancel event " + getClass().getSimpleName() + " as it doesn't implement @Cancellable");
+		}
 		this.cancelled = cancelled;
 	}
 

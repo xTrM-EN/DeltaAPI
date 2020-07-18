@@ -15,15 +15,15 @@ import me.xtrm.xeon.loader.api.transform.ITransformer;
  */
 public interface IDeltaLoader {
 	
-	/** Called on {@link IXeonLoader#postInit(net.minecraft.launchwrapper.LaunchClassLoader)} */
+	/** Called after {@link IXeonLoader#postInit(net.minecraft.launchwrapper.LaunchClassLoader)} */
 	void initialize();
 	
 	/** Get the current {@link PubSub} */
 	PubSub<IEvent> getEventManager();
 	
-	/** Get the {@link IPluginManager} */
+	/** Get the {@link IPluginManager PluginManager} */
 	IPluginManager getPluginManager();
-	/** Get the {@link ILibraryManager} */
+	/** Get the {@link ILibraryManager LibraryManager} */
 	ILibraryManager getLibraryManager();
 	
 	/** Get the loader's {@link ITransformer Transformers} */

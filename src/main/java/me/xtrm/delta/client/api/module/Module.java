@@ -1,20 +1,29 @@
 package me.xtrm.delta.client.api.module;
 
-import me.xtrm.delta.client.api.DeltaAPI;
-import me.xtrm.delta.client.api.setting.ISetting;
 import me.xtrm.delta.loader.api.LoaderProvider;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
 
+/**
+ * Simple implementation for {@link IModule}
+ * @author xTrM_
+ */
 public class Module implements IModule {
 	
-	protected Minecraft mc = Minecraft.getMinecraft();
-	protected FontRenderer fr = Minecraft.getMinecraft().fontRenderer;
-	
-	private String name, displayName, desc;
-	private int key, anim;
+	/** The name */
+	private String name;
+	/** The displayed name */
+	private String displayName;
+	/** The description */
+	private String desc;
+	/** The keybinding */
+	private int key;
+	/** The animation key */
+	private int anim;
+	/** The category */
 	private Category category;
-	private boolean visible, enabled;
+	/** The HUD visibility state */
+	private boolean visible;
+	/** The toggled state */
+	private boolean enabled;
 	
 	public Module(String name, Category category) { this(name, 0, category, false, true); }	
 	public Module(String name, Category category, boolean enabled) { this(name, 0, category, enabled, true); }	
@@ -35,25 +44,25 @@ public class Module implements IModule {
 	}
 
 	public String getDisplayName() { return displayName; }
-	public void setDisplayName(String displayName) { this.displayName = displayName; }
+	public final void setDisplayName(String displayName) { this.displayName = displayName; }
 	public String getDescription() { return desc; }
-	public void setDescription(String s) { this.desc = s; }
-	public int getKey() { return key; }
-	public void setKey(int key) { this.key = key; }
-	public int getAnim() { return anim; }
-	public void setAnim(int anim) { this.anim = anim; }
-	public boolean isEnabled() { return enabled; }
-	public boolean isToggled() { return enabled; }
-	public boolean getState() { return enabled; }
-	public String getName() { return name; }
-	public Category getCategory() { return category; }
-	public void setVisible(boolean visible) { this.visible = visible; }
-	public boolean isVisible() { return visible; }
+	public final void setDescription(String s) { this.desc = s; }
+	public final int getKey() { return key; }
+	public final void setKey(int key) { this.key = key; }
+	public int getAnimation() { return anim; }
+	public final void setAnimation(int anim) { this.anim = anim; }
+	public final boolean isEnabled() { return enabled; }
+	public final boolean isToggled() { return enabled; }
+	public final boolean getState() { return enabled; }
+	public final String getName() { return name; }
+	public final Category getCategory() { return category; }
+	public final void setVisible(boolean visible) { this.visible = visible; }
+	public final boolean isVisible() { return visible; }
 	
-	public void setEnabled(boolean enabled) { this.setToggled(enabled); }
-	public void setToggled(boolean toggled) { this.setState(enabled); }
+	public final void setEnabled(boolean enabled) { this.setState(enabled); }
+	public final void setToggled(boolean toggled) { this.setState(enabled); }
 	
-	public void setState(boolean state) {
+	public final void setState(boolean state) {
 		if(state != getState())
 			iToggle();
 		
@@ -65,7 +74,7 @@ public class Module implements IModule {
 			iDisable();
 	}
 	
-	public void toggle() {
+	public final void toggle() {
 		iToggle();
 		
 		boolean next = !this.enabled;
@@ -75,15 +84,6 @@ public class Module implements IModule {
 			iEnable();
 		else
 			iDisable();
-	}
-
-	public void registerSettings(ISetting... settings) {
-		DeltaAPI.getClient().getSettingManager().registerSettings(settings);
-	}
-
-	public ISetting getSetting(String name) {
-		String unlocalizedName = this.getName() + " " + name;
-		return DeltaAPI.getClient().getSettingManager().getSettingByInternalName(unlocalizedName);
 	}
 	
 	public String getMode() {

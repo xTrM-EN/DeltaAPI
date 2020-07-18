@@ -12,21 +12,32 @@ import me.xtrm.delta.loader.api.event.bus.EventType;
  */
 public class EventFMLPreInitialization extends Event {
 
+	/** If {@link EventType#ON}, the current event being sent */
 	private FMLPreInitializationEvent event;
+	/** The current event type */
 	private EventType type;
 	
+	/** Constructor */
 	public EventFMLPreInitialization(EventType type, FMLPreInitializationEvent event) {
 		this.type = type;
 		this.event = event;
 	}
 	
+	/**
+	 * @return the current event type
+	 */
 	public EventType getType() {
 		return type;
 	}
 	
+	/**
+	 * @return the current event being sent
+	 * @throws UnsupportedOperationException if the the current event type isn't {@link EventType#ON}
+	 */
 	public FMLPreInitializationEvent getFMLEvent() {
-		if(type != EventType.ON)
-			throw new UnsupportedOperationException("Cannot get FMLEvent for " + type.name() + " event");
+		if(type != EventType.ON) {
+			throw new UnsupportedOperationException("Cannot get FMLEvent for " + type.name() + " EventType");
+		}
 		return event;
 	}
 	

@@ -4,55 +4,99 @@ import java.util.List;
 
 import me.xtrm.delta.client.api.module.IModule;
 
+/**
+ * Simple implementation for {@link ISetting}
+ * @author xTrM_
+ */
 public class Setting implements ISetting {
 	
+	/** The name */
 	private String name;
+	/** The parent */
 	private IModule parent;
+	/** The internal name */
 	private String internalName;
 	
+	/** The setting type */
 	private SettingType type;
 	
+	/** The combo value */
 	private String comboValue;
+	/** The combo options*/
 	public List<String> comboOptions;
 	
+	/** The check value */
 	private boolean checkValue;
 	
+	/** The slider value */
 	private double sliderValue;
+	/** The slider's min value */
 	private double sliderMin;
+	/** The slider's max value */
 	private double sliderMax;
+	/** Is the slider only allowed integers (false means floats will be used) */
 	private boolean sliderOnlyInt;
 	
+	/** The label value */
 	private String labelValue;
 
-	public Setting(String name, IModule parent, String sval, List<String> options){
+	/**
+	 * Constructor for a Combo setting
+	 * @param name
+	 * @param parent
+	 * @param sval
+	 * @param options
+	 */
+	public Setting(String name, IModule parent, String defaultValue, List<String> options) {
 		this.name = name;
 		this.internalName = parent.getName() + " " + name;
 		this.parent = parent;
-		this.comboValue = sval;
+		this.comboValue = defaultValue;
 		this.comboOptions = options;
 		this.type = SettingType.COMBO;
 	}
 	
-	public Setting(String name, IModule parent, boolean bval){
+	/**
+	 * Constructor for a Check setting
+	 * @param name
+	 * @param parent
+	 * @param defaultValue
+	 */
+	public Setting(String name, IModule parent, boolean defaultValue) {
 		this.name = name;
 		this.internalName = parent.getName() + " " + name;
 		this.parent = parent;
-		this.checkValue = bval;
+		this.checkValue = defaultValue;
 		this.type = SettingType.CHECK;
 	}
 	
-	public Setting(String name, IModule parent, double dval, double min, double max, boolean onlyint){
+	/**
+	 * Constructor for a Slider setting
+	 * @param name
+	 * @param parent
+	 * @param defaultValue
+	 * @param min
+	 * @param max
+	 * @param onlyint
+	 */
+	public Setting(String name, IModule parent, double defaultValue, double min, double max, boolean onlyint) {
 		this.name = name;
 		this.internalName = parent.getName() + " " + name;
 		this.parent = parent;
-		this.sliderValue = dval;
+		this.sliderValue = defaultValue;
 		this.sliderMin = min;
 		this.sliderMax = max;
 		this.sliderOnlyInt = onlyint;
 		this.type = SettingType.SLIDER;
 	}
 	
-	public Setting(String name, IModule parent, String label){
+	/**
+	 * Constructor for a Label setting
+	 * @param name
+	 * @param parent
+	 * @param label
+	 */
+	public Setting(String name, IModule parent, String label) {
 		this.name = name;
 		this.labelValue = label;
 		this.internalName = parent.getName() + " " + name;
@@ -60,7 +104,12 @@ public class Setting implements ISetting {
 		this.type = SettingType.LABEL;
 	}
 	
-	public Setting(String name, IModule parent){
+	/**
+	 * Constructor for a Spacer setting
+	 * @param name
+	 * @param parent
+	 */
+	public Setting(String name, IModule parent) {
 		this.name = name;
 		this.internalName = parent.getName() + " " + name;
 		this.parent = parent;
@@ -177,6 +226,10 @@ public class Setting implements ISetting {
 		return type == SettingType.SPACER;
 	}
 
+	/**
+	 * An enum to differenciate between setting types
+	 * @author xTrM_
+	 */
 	public enum SettingType {
 		CHECK, COMBO, SLIDER, LABEL, SPACER;
 	}

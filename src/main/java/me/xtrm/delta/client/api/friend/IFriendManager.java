@@ -2,6 +2,10 @@ package me.xtrm.delta.client.api.friend;
 
 import java.util.List;
 
+/**
+ * Base interface for a (username based) friend manager
+ * @author xTrM_
+ */
 public interface IFriendManager {
 
 	List<String> getFriends();
@@ -22,5 +26,4 @@ public interface IFriendManager {
 			getFriends().remove(username);
 		}
 	}
-	
 }

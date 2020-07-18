@@ -29,7 +29,7 @@ plugins {
 
 apply plugin: 'forge'
 
-version = "2.0.3"
+version = "2.0.4"
 group = "me.xtrm.delta" 
 archivesBaseName = "DeltaAPI"
 
@@ -49,7 +49,9 @@ repositories {
 dependencies {
 	implementation 'org.yaml:snakeyaml:1.21'
 	
-	implementation 'com.github.Hippah:LWJEB:5.0.0'
+	implementation('com.github.Hippah:LWJEB:5.0.0'){
+		exclude group: "org.ow2.asm"
+	}
 }
 
 publishing.publications {

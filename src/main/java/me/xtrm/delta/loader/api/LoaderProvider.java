@@ -28,10 +28,11 @@ public class LoaderProvider {
 	}
 	
 	static {
-		InputStream is = DeltaAPI.class.getResourceAsStream("/loader_data.json");
+		InputStream is = DeltaAPI.class.getResourceAsStream("/loader_data.yml");
 		if (is == null)
-			throw new Error("/loader_data.json file not found!");
+			throw new Error("/loader_data.yml file not found!");
 
+		/** Parse the ./loader_data.json file */
 		data = LoaderData.parse(is);
 
 		try {

@@ -10,12 +10,17 @@ import me.xtrm.delta.loader.api.event.bus.EventType;
  */
 public class EventFMLPostInitialization extends Event {
 
+	/** The current event type */
 	private EventType type;
 	
+	/** Constructor */
 	public EventFMLPostInitialization(EventType type) {
 		this.type = type;
 	}
 	
+	/**
+	 * @return the current event type
+	 */
 	public EventType getType() {
 		return type;
 	}

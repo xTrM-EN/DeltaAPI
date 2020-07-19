@@ -9,14 +9,20 @@ public class Library implements ILibrary {
 	/** The library's declaration */
 	private String declaration;
 	
-	/** Constructor */
+	/**
+	 * Constructor
+	 * @param declaration 
+	 * 		the library declaration
+	 */
 	public Library(String declaration) {
 		this.declaration = declaration;
 	}
 	
-	/** Get the library's declaration */
+	/**
+	 * @return the library's declaration 
+	 */
 	@Override
-	public String getLibraryString() {
+	public String getLibraryDeclaration() {
 		return this.declaration;
 	}	
 	

@@ -14,7 +14,9 @@ public class XeonProvider {
 		xeonLoader = xeon;
 	}
 	
-	/** Get the primary {@link IXeonLoader} instance */
+	/**
+	 * @return the primary {@link IXeonLoader} instance
+	 */
 	public static IXeonLoader getXeonLoader() {
 		return xeonLoader;
 	}

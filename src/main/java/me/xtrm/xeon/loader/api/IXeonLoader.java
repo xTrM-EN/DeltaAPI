@@ -16,23 +16,32 @@ public interface IXeonLoader extends ITweaker {
 	/**
 	 * Called on tweaker's initialization
 	 * @param launchArgs
+	 * 		the launch arguments
 	 * @param gameDir
+	 * 		the game directory
 	 */
 	void init(List<String> launchArgs, File gameDir);
 	
 	/**
 	 * Called after {@link init} 
 	 * @param launchClassLoader
+	 * 		the classloader
 	 */
 	void postInit(LaunchClassLoader launchClassLoader);
 	
-	/** Gets the {@link IXeonClassLoader} instance */
+	/** 
+	 * @return the {@link IXeonClassLoader} instance 
+	 */	
 	IXeonClassLoader getXCL();
-	/** Gets the {@link LaunchClassLoader} instance */
+	
+	/**
+	 * @return the {@link LaunchClassLoader} instance 
+	 */
 	LaunchClassLoader getWCL();
 	
 	@Override
 	default void acceptOptions(List<String> args, File gameDir, File assetsDir, String profile) {
+		/** 2000 iq */
 		XeonProvider.setupXeonLoader(this);
 		
 		init(args, gameDir);
@@ -45,7 +54,7 @@ public interface IXeonLoader extends ITweaker {
 	
 	@Override
 	default String getLaunchTarget() {
-		/** LaunchWrapper shouldn't call this because we aren't the primary tweaker */
+		/** LaunchWrapper shouldn't call this, we aren't the primary tweaker */
 		throw new UnsupportedOperationException("We shouldn't be getting here... HELP");
 	}
 	

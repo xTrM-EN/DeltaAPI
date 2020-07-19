@@ -13,25 +13,41 @@ import me.xtrm.xeon.loader.api.transform.ITransformer;
  */
 public interface IXeonClassLoader {
 
-	/** Add an URL to the current classpath */
+	/**
+	 * @param url 
+	 * 		the url to be added to the classpath
+	 */
 	void addURL(URL url);
 
 	/**
 	 * Define a {@link Class} from a {@link ClassWriter}
 	 * @param classWriter
+	 * 		a not-empty classwriter
 	 * @return the defined class
 	 */
 	Class<?> defineClass(ClassWriter classWriter);
 
-	/** Register multiple {@link ITransformer Transformers} */
+	/**
+	 * Register multiple {@link ITransformer Transformers}
+	 * @param transformers
+	 * 		the transformers to be registered
+	 */
 	void registerTransformers(ITransformer... transformers);
 
-	/** Get the current {@link ITransformer Transformers} */
+	/**
+	 * @return the current {@link ITransformer Transformers}
+	 */
 	List<ITransformer> getTransformers();
 
-	/** Get if class wrapping enabled */
+	/** 
+	 * @return if class wrapping enabled 
+	 */
 	boolean isClassWrappingEnabled();
-	/** Set the context's class wrapping state */
+	
+	/**
+	 * @param state 
+	 * 		the new class wrapping state
+	 */
 	void setClassWrapping(boolean state);
 
 }

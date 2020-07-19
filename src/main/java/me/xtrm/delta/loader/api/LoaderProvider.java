@@ -17,12 +17,16 @@ public class LoaderProvider {
 	/** The primary {@link IDeltaLoader} instance */
 	private static IDeltaLoader loaderInstance;
 	
-	/** Get the current loader's data */
+	/**
+	 * @return the current loader's data
+	 */
 	public static LoaderData getLoaderData() {
 		return data;
 	}
 	
-	/** Get the primary {@link IDeltaLoader} instance */
+	/**
+	 * @return the primary {@link IDeltaLoader} instance
+	 */
 	public static IDeltaLoader getLoader() {
 		return loaderInstance;
 	}

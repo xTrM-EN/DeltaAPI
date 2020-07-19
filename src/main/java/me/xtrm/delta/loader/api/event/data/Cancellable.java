@@ -1,4 +1,4 @@
-package me.xtrm.delta.loader.api.event.bus;
+package me.xtrm.delta.loader.api.event.data;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

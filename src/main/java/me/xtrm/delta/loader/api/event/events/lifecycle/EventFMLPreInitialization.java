@@ -1,13 +1,13 @@
 package me.xtrm.delta.loader.api.event.events.lifecycle;
 
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import me.xtrm.delta.loader.api.event.bus.Event;
-import me.xtrm.delta.loader.api.event.bus.EventType;
+import me.xtrm.delta.loader.api.event.data.Event;
+import me.xtrm.delta.loader.api.event.data.EventType;
 
 /**
  * Lifecycle Event
  * 
- * Fired before and after the FMLPreInitialization Forge Events are fired ({@link EventType#PRE} & {@link EventType#POST})
+ * Fired before and after the FMLPreInitialization Forge Events are fired ({@link EventType#PRE} &amp; {@link EventType#POST})
  * Fired for each FMLPreInitialization Forge Event fired ({@link EventType#ON})
  */
 public class EventFMLPreInitialization extends Event {
@@ -17,9 +17,15 @@ public class EventFMLPreInitialization extends Event {
 	/** The current event type */
 	private EventType type;
 	
-	/** Constructor */
-	public EventFMLPreInitialization(EventType type, FMLPreInitializationEvent event) {
-		this.type = type;
+	/**
+	 * Constructor
+	 * @param eventType
+	 * 		the relative {@link EventType}
+	 * @param event
+	 * 		the forge {@link FMLPreInitializationEvent Event}
+	 */
+	public EventFMLPreInitialization(EventType eventType, FMLPreInitializationEvent event) {
+		this.type = eventType;
 		this.event = event;
 	}
 	
@@ -32,7 +38,8 @@ public class EventFMLPreInitialization extends Event {
 	
 	/**
 	 * @return the current event being sent
-	 * @throws UnsupportedOperationException if the the current event type isn't {@link EventType#ON}
+	 * @throws UnsupportedOperationException 
+	 * 		if the the current event type isn't {@link EventType#ON}
 	 */
 	public FMLPreInitializationEvent getFMLEvent() {
 		if(type != EventType.ON) {

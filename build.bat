@@ -1,3 +1,3 @@
 @echo off
 
-gradlew build unobfJar
+gradlew build

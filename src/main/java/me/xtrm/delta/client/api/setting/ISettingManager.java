@@ -12,24 +12,33 @@ import me.xtrm.delta.client.api.module.IModule;
  */
 public interface ISettingManager {
 
-	/** Get all settings */
+	/** 
+	 * @return the list of all settings 
+	 */
 	List<ISetting> getSettings();
 	
-	/** Register settings */
+	/** 
+	 * Register settings
+	 * @param settings 
+	 * 		the settings to be registered
+	 */
 	default void registerSettings(ISetting... settings) {
 		Collections.addAll(getSettings(), settings);
 	}
 	
 	/**
-	 * @param mod
+	 * @param module
+	 * 		the parent module
 	 * @return all settings from that module
 	 */
-	default List<ISetting> getSettingsForModule(IModule mod) {
-		return getSettings().stream().filter(s -> s.getParent() == mod).collect(Collectors.toList());
+	default List<ISetting> getSettingsForModule(IModule module) {
+		return getSettings().stream().filter(s -> s.getParent() == module).collect(Collectors.toList());
 	}
 	
 	/**
 	 * @param internalName
+	 * 		the internal name of that setting <br>
+	 * 		<code>(parentModule.name + "_" + setting.name)</code>
 	 * @return the setting with that internal name
 	 */
 	default ISetting getSettingByInternalName(String internalName) {
@@ -38,11 +47,13 @@ public interface ISettingManager {
 	
 	/**
 	 * @param module
+	 * 		the parent module
 	 * @param name
+	 * 		the setting's name
 	 * @return the setting with that parent and name
 	 */
-	default ISetting getSettingByModuleAndName(IModule mod, String name) {
-		return getSettings().stream().filter(s -> s.getInternalName().equalsIgnoreCase(mod.getName() + "_" + name)).findFirst().orElse(null);
+	default ISetting getSettingByModuleAndName(IModule module, String name) {
+		return getSettings().stream().filter(s -> s.getInternalName().equalsIgnoreCase(module.getName() + "_" + name)).findFirst().orElse(null);
 	}
 
 }

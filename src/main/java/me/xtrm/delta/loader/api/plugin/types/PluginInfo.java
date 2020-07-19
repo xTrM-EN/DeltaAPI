@@ -12,22 +12,22 @@ import me.xtrm.xeon.loader.api.transform.ITransformer;
 public @interface PluginInfo {
 	
 	/**
-	 * The plugin's name
+	 * @return the plugin's name
 	 */
 	String name();
 	
 	/**
-	 * The plugin's version
+	 * @return the plugin's version
 	 */
 	String version();
 	
 	/**
-	 * The plugin's author
+	 * @return the plugin's author
 	 */
 	String author();
 	
 	/**
-	 * The plugin's Transformers 
+	 * @return the plugin's Transformers 
 	 */
 	Class<? extends ITransformer>[] transformers() default {};
 	

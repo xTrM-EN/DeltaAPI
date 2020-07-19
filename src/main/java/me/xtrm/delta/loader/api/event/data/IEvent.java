@@ -1,4 +1,4 @@
-package me.xtrm.delta.loader.api.event.bus;
+package me.xtrm.delta.loader.api.event.data;
 
 import me.hippo.api.lwjeb.bus.PubSub;
 import me.xtrm.delta.loader.api.IDeltaLoader;
@@ -17,7 +17,10 @@ public interface IEvent {
 	 */
 	boolean isCancelled();
 	
-	/** Set the cancelled state */
+	/**
+	 * @param cancelled
+	 * 		if the event is cancelled
+	 */
 	void setCancelled(boolean cancelled);
 	
 	/** 

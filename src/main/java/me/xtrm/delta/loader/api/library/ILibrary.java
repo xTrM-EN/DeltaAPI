@@ -1,6 +1,5 @@
 package me.xtrm.delta.loader.api.library;
 
-import java.io.File;
 import java.util.regex.Pattern;
 
 /**
@@ -9,27 +8,42 @@ import java.util.regex.Pattern;
  */
 public interface ILibrary {
 
-	String getLibraryString();
+	/**
+	 * @return the library declaration
+	 */
+	String getLibraryDeclaration();
 
+	/**
+	 * @return the library's group
+	 */
 	default String getGroup() {
-		return getLibraryString().split(Pattern.quote(":"))[0];
+		return getLibraryDeclaration().split(Pattern.quote(":"))[0];
 	}
 	
+	/**
+	 * @return the library's name
+	 */
 	default String getName() {
-		return getLibraryString().split(Pattern.quote(":"))[1];
+		return getLibraryDeclaration().split(Pattern.quote(":"))[1];
 	}
 	
+	/**
+	 * @return the library's name
+	 */
 	default String getVersion() {
-		return getLibraryString().split(Pattern.quote(":"))[2];
+		return getLibraryDeclaration().split(Pattern.quote(":"))[2];
 	}
 	
+	/**
+	 * @return a library's path
+	 */
 	default String getFilePath() {
 		return getGroup() 
-				+ File.separator 
+				+ "/"
 				+ getName() 
-				+ File.separator 
+				+ "/" 
 				+ getVersion() 
-				+ File.separator 
+				+ "/" 
 				+ getName() 
 				+ "-" 
 				+ getVersion() 

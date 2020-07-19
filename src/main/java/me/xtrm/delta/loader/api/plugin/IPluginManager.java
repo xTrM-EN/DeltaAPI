@@ -12,25 +12,37 @@ import me.xtrm.delta.loader.api.plugin.types.PluginInfo;
  */
 public interface IPluginManager {
 	
-	/** Initialize the plugin manager */
+	/**
+	 * Initialize the plugin manager
+	 * @param pluginsDir 
+	 * 		the plugins directory
+	 */
 	void init(File pluginsDir);
 	
-	/** Load a plugin file */
+	/** 
+	 * Load a plugin file
+	 * @param pluginFile 
+	 * 		the plugin jar file
+	 */
 	void loadPlugin(File pluginFile);
 	
 	/**
-	 * @param jarFile
+	 * @param jarFile 
+	 * 		a jar file
 	 * @return is the jarFile a plugin file
 	 */
 	boolean isPlugin(File jarFile);
 	
 	/**
-	 * @param pluginFile
+	 * @param pluginFile 
+	 * 		a plugin jar file
 	 * @return the plugin's main class
 	 */
 	String getPluginMainClass(File pluginFile);
 	
-	/** Get the loaded plugins mapped to their {@link PluginInfo} */
+	/**
+	 * @return the loaded plugins mapped to their {@link PluginInfo}
+	 */
 	Map<IPlugin, PluginInfo> getLoadedPlugins();
 
 }

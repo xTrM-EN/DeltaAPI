@@ -16,12 +16,16 @@ public class DeltaAPI {
 	/** The primary {@link IDeltaClient} instance */
 	private static IDeltaClient clientInstance;
 
-	/** Get the current client's data */
+	/** 
+	 * @return the current client's data 
+	 */
 	public static ClientData getClientData() {
 		return data;
 	}
 
-	/** Get the primary {@link IDeltaClient} instance */
+	/** 
+	 * @return the primary {@link IDeltaClient} instance 
+	 */
 	public static IDeltaClient getClient() {
 		return clientInstance;
 	}

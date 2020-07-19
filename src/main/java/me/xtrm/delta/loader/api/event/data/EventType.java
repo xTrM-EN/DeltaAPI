@@ -1,4 +1,4 @@
-package me.xtrm.delta.loader.api.event.bus;
+package me.xtrm.delta.loader.api.event.data;
 
 /**
  * Enum for different types of event types/state/status/whatever you wanna call that

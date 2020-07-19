@@ -1,7 +1,7 @@
 package me.xtrm.delta.loader.api.event.events.lifecycle;
 
-import me.xtrm.delta.loader.api.event.bus.Event;
-import me.xtrm.delta.loader.api.event.bus.EventType;
+import me.xtrm.delta.loader.api.event.data.Event;
+import me.xtrm.delta.loader.api.event.data.EventType;
 
 /**
  * Lifecycle Event
@@ -13,9 +13,13 @@ public class EventFMLInitialization extends Event {
 	/** The current event type */
 	private EventType type;
 	
-	/** Constructor */
-	public EventFMLInitialization(EventType type) {
-		this.type = type;
+	/**
+	 * Constructor
+	 * @param eventType
+	 * 		the relative {@link EventType}
+	 */
+	public EventFMLInitialization(EventType eventType) {
+		this.type = eventType;
 	}
 	
 	/**

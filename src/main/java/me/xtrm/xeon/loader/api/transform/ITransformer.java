@@ -11,19 +11,23 @@ import org.objectweb.asm.tree.ClassNode;
 public interface ITransformer extends Opcodes {
 
 	/**
-	 * @param name
+	 * @param className
+	 * 		the class name
 	 * @param isSubclass
+	 * 		is the class a subclass
 	 * @return should this transformer be called
 	 */
-	default boolean isTarget(String name, boolean isSubclass) {
+	default boolean isTarget(String className, boolean isSubclass) {
 		return true;
 	}
 	
 	/**
 	 * Transforms the {@link ClassNode}
 	 * @param classNode
-	 * @param name
+	 * 		the passed class node
+	 * @param className
+	 * 		the class name
 	 */
-	void transform(ClassNode classNode, String name);
+	void transform(ClassNode classNode, String className);
 	
 }

@@ -11,16 +11,24 @@ import me.xtrm.delta.client.api.setting.ISettingManager;
  */
 public interface IDeltaClient {
 
-	/** Get the {@link IFileManager FileManager} */
+	/** 
+	 * @return the {@link IFileManager FileManager} 
+	 */
 	IFileManager getFileManager();
 	
-	/** Get the {@link IModuleManager ModuleManager} */
+	/** 
+	 * @return the {@link IModuleManager ModuleManager} 
+	 */
 	IModuleManager getModuleManager();
 	
-	/** Get the {@link ISettingManager SettingManager} */
+	/** 
+	 * @return the {@link ISettingManager SettingManager} 
+	 */
 	ISettingManager getSettingManager();
 	
-	/** Get the {@link ICommandManager CommandManager} */
+	/** 
+	 * @return the {@link ICommandManager CommandManager} 
+	 */
 	ICommandManager getCommandManager();
 
 }

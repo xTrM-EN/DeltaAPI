@@ -10,25 +10,45 @@ import me.xtrm.delta.client.api.module.IModule;
  */
 public interface ISetting {
 
-	/** The display name */
+	/** 
+	 * @return the display name 
+	 */
 	String getDisplayName();
-	/** The parent */
+	/** 
+	 * @return the parent
+	 */
 	IModule getParent();
-	/** The internal name */
+	/** 
+	 * @return the internal name 
+	 */
 	String getInternalName();
 	
-	/** Is this a combo setting */
+	/** 
+	 * @return if this a combo setting 
+	 */
 	boolean isCombo();
-	/** Get the combo value */
+	/** 
+	 * @return the combo value 
+	 */
 	String getComboValue();
-	/** Set the combo value */
+	/** 
+	 * @param value
+	 * 		the combo value 
+	 */
 	void setComboValue(String value);
-	/** Get all combo options*/
+	/**
+	 * @return the combo options
+	 */
 	List<String> getComboOptions();
-	/** Set the combo options */
+	/** 
+	 * @param options
+	 * 		the combo options 
+	 */
 	void setComboOptions(List<String> options);
 	
-	/** Get the current selected combo index */
+	/** 
+	 * @return the current selected combo index 
+	 */
 	default int getComboOptionIndex() {
 		int optionIndex = 0;
 		for(String s : getComboOptions()) {
@@ -40,7 +60,9 @@ public interface ISetting {
 		return -42;
 	}
 	
-	/** Get the next combo index */
+	/** 
+	 * @return the next combo index 
+	 */
 	default String getComboNextOption() {
 		int optionIndex = getComboOptionIndex();
 		if(optionIndex == -42) return getComboOptions().get(0);
@@ -53,36 +75,68 @@ public interface ISetting {
 		return getComboOptions().get(optionIndex);
 	}
 	
-	/** Is this a check setting */
+	/** 
+ 	 * @return if this a check setting 
+ 	 */
 	boolean isCheck();
-	/** Get the check value */
+	/**
+	 * @return the check value 
+	 */
 	boolean getCheckValue();
-	/** Set the check value */
+	/**
+	 * @param value
+	 * 		the check value 
+	 */
 	void setCheckValue(boolean value);
 	
-	/** Is this a slider setting */
+	/**
+	 * @return if this a slider setting 
+	 */
 	boolean isSlider();
-	/** Get the slider value */
+	/** 
+ 	 * @return the slider value 
+ 	 */
 	double getSliderValue();
-	/** Set the slider value */
-	void setSliderValue(double val);
-	/** Get the slider's min value */
+	/**
+	 * @param value
+	 *		the slider value 
+	 */
+	void setSliderValue(double value);
+	/**
+	 * @return the slider's min value 
+	 */
 	double getSliderMin();
-	/** Set the slider's min value */
-	void setSliderMin(double min);
-	/** Get the slider's max value */
+	/**
+	 * @param minValue
+	 * 		the slider's min value 
+	 */
+	void setSliderMin(double minValue);
+	/** 
+	 * @return the slider's max value 
+	 */
 	double getSliderMax();
-	/** Set the slider's max value */
-	void setSliderMax(double max);
-	/** Is the slider only allowed integers (false means floats will be used) */
+	/** 
+	 * @param maxValue
+	 * 		the slider's max value 
+	 */
+	void setSliderMax(double maxValue);
+	/** 
+	 * @return if the slider only allowed integers (false means <code>double</code> will be used) 
+	 */
 	boolean isSliderOnlyInt();
 	
-	/** Is this a label setting */
+	/**
+	 * @return if this a label setting 
+	 */
 	boolean isLabel();
-	/** Get the label value */
+	/**
+	 * @return the label value 
+	 */
 	String getLabelString();
 	
-	/** Is this a spacer setting */
+	/** 
+	 * @return if this a spacer setting 
+	 */
 	boolean isSpacer();
 	
 }

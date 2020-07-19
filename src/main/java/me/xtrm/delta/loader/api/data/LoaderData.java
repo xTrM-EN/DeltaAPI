@@ -6,6 +6,8 @@ import java.util.List;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 
+import me.xtrm.delta.loader.api.IDeltaLoader;
+
 /**
  * Data class for the current {@link IDeltaLoader DeltaLoader}
  * @author xTrM_
@@ -20,20 +22,30 @@ public class LoaderData {
 	/** The required libraries */
 	private List<String> libraries;
 	
+	/**
+	 * @return the loader's main class
+	 */
 	public String getMainClass() {
 		return mainClass;
 	}
 	
+	/**
+	 * @return the maven repositories
+	 */
 	public List<String> getRepositories() {
 		return repositories;
 	}
 	
+	/**
+	 * @return the required libraries
+	 */
 	public List<String> getLibraries() {
 		return libraries;
 	}
 	
 	/**
 	 * @param inputStream
+	 * 		the parsable stream
 	 * @return the parsed data
 	 */
 	public static LoaderData parse(InputStream inputStream) {

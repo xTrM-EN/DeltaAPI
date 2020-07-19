@@ -8,8 +8,16 @@ import java.util.List;
  */
 public interface IFriendManager {
 
+	/**
+	 * @return the friend list
+	 */
 	List<String> getFriends();
 	
+	/**
+	 * Add a friend
+	 * @param username
+	 * 		the username to be added
+	 */
 	default void addFriend(String username) {
 		if(isFriend(username)) {
 			return;
@@ -17,10 +25,20 @@ public interface IFriendManager {
 		getFriends().add(username);
 	}
 	
+	/**
+	 * @param username
+	 * 		the username to be checked
+	 * @return if this username a friend
+	 */
 	default boolean isFriend(String username) {
 		return getFriends().contains(username);
 	}
 	
+	/**
+	 * Remove a friend
+	 * @param username
+	 * 		the username to be removed
+	 */
 	default void removeFriend(String username) {
 		if(isFriend(username)) {
 			getFriends().remove(username);

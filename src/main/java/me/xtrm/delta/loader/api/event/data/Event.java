@@ -1,4 +1,4 @@
-package me.xtrm.delta.loader.api.event.bus;
+package me.xtrm.delta.loader.api.event.data;
 
 import me.xtrm.delta.loader.api.LoaderProvider;
 
@@ -21,6 +21,12 @@ public class Event implements IEvent {
 		return cancelled;
 	}
 
+	/**
+	 * @param cancelled
+	 * 		if the event is cancelled
+	 * @throws UnsupportedOperationException
+	 * 		if the event class doesn't implement {@link Cancellable}
+	 */
 	@Override
 	public void setCancelled(boolean cancelled) {
 		if(!isCancellable()) {

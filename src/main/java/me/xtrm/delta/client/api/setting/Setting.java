@@ -1,5 +1,6 @@
 package me.xtrm.delta.client.api.setting;
 
+import java.util.Arrays;
 import java.util.List;
 
 import me.xtrm.delta.client.api.module.IModule;
@@ -34,7 +35,7 @@ public class Setting implements ISetting {
 	private double sliderMin;
 	/** The slider's max value */
 	private double sliderMax;
-	/** Is the slider only allowed integers (false means floats will be used) */
+	/** Is the slider only allowed integers (false means <code>double</code> will be used) */
 	private boolean sliderOnlyInt;
 	
 	/** The label value */
@@ -43,9 +44,28 @@ public class Setting implements ISetting {
 	/**
 	 * Constructor for a Combo setting
 	 * @param name
+	 * 		the setting's displayed name
 	 * @param parent
-	 * @param sval
+	 * 		the setting's parent {@link IModule}
+	 * @param defaultValue
+	 * 		the setting's default {@link String} value
 	 * @param options
+	 * 		the setting's {@link String} options
+	 */
+	public Setting(String name, IModule parent, String defaultValue, String... options) {
+		this(name, parent, defaultValue, Arrays.asList(options));
+	}
+	
+	/**
+	 * Constructor for a Combo setting
+	 * @param name
+	 * 		the setting's displayed name
+	 * @param parent
+	 * 		the setting's parent {@link IModule}
+	 * @param defaultValue
+	 * 		the setting's default {@link String} value
+	 * @param options
+	 * 		the setting's {@link String} options
 	 */
 	public Setting(String name, IModule parent, String defaultValue, List<String> options) {
 		this.name = name;
@@ -59,8 +79,11 @@ public class Setting implements ISetting {
 	/**
 	 * Constructor for a Check setting
 	 * @param name
+	 * 		the setting's displayed name
 	 * @param parent
+	 * 		the setting's parent {@link IModule}
 	 * @param defaultValue
+	 * 		the setting's default {@link Boolean} value
 	 */
 	public Setting(String name, IModule parent, boolean defaultValue) {
 		this.name = name;
@@ -73,11 +96,17 @@ public class Setting implements ISetting {
 	/**
 	 * Constructor for a Slider setting
 	 * @param name
+	 * 		the setting's displayed name
 	 * @param parent
+	 * 		the setting's parent {@link IModule}
 	 * @param defaultValue
+	 * 		the setting's default {@link Double} value
 	 * @param min
+	 * 		the setting's minimum {@link Double} value
 	 * @param max
+	 * 		the setting's maximum {@link Double} value
 	 * @param onlyint
+	 * 		if the slider only allowed integers (false means <code>double</code> will be used)
 	 */
 	public Setting(String name, IModule parent, double defaultValue, double min, double max, boolean onlyint) {
 		this.name = name;
@@ -93,8 +122,11 @@ public class Setting implements ISetting {
 	/**
 	 * Constructor for a Label setting
 	 * @param name
+	 * 		the setting's displayed name
 	 * @param parent
+	 * 		the setting's parent {@link IModule}
 	 * @param label
+	 * 		the setting's {@link String} label
 	 */
 	public Setting(String name, IModule parent, String label) {
 		this.name = name;
@@ -107,7 +139,9 @@ public class Setting implements ISetting {
 	/**
 	 * Constructor for a Spacer setting
 	 * @param name
+	 * 		the setting's displayed name
 	 * @param parent
+	 * 		the setting's parent {@link IModule}
 	 */
 	public Setting(String name, IModule parent) {
 		this.name = name;

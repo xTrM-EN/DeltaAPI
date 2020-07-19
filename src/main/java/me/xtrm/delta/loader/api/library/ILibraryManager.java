@@ -11,10 +11,16 @@ public interface ILibraryManager {
 	/** Initialize the library manager */
 	void init();
 	
-	/** Load a library */
+	/** 
+	 * Load a library 
+	 * @param library
+	 * 		the library to be loaded
+	 */
 	void loadLibrary(ILibrary library);
 	
-	/** Get all libraries */
+	/**
+	 * @return loaded libraries
+	 */
 	List<ILibrary> getLibraries();
 
 }

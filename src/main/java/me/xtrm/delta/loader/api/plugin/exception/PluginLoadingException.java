@@ -2,8 +2,8 @@ package me.xtrm.delta.loader.api.plugin.exception;
 
 public class PluginLoadingException extends RuntimeException {
 
-	private static final long serialVersionUID = 5556125598830571362L;
-	
+	private static final long serialVersionUID = -1042477986930034594L;
+
 	public PluginLoadingException(String message) {
 		super(message);
 	}

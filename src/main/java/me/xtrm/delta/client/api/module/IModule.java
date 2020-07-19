@@ -9,40 +9,73 @@ import me.xtrm.delta.client.api.setting.ISetting;
  */
 public interface IModule {
 	
-	/** Get the name */
+	/** 
+	 * @return the name 
+	 */
 	String getName();
 	
-	/** Get the displayed name */
+	/** 
+	 * @return the displayed name 
+	 */
 	String getDisplayName();
-	/** Set the displayed name */
+	/** 
+	 * @param displayName
+	 * 		the displayed name 
+	 */
 	void setDisplayName(String displayName);
 	
-	/** Get the description */
+	/** 
+ 	 * @return the description 
+ 	 */
 	String getDescription();
-	/** Set the description */
-	void setDescription(String desc);
+	/** 
+	 * @param description
+	 * 		the description 
+	 */
+	void setDescription(String description);
 	
-	/** Get the {@link Category} */
+	/**
+	 * @return the {@link Category} 
+	 */
 	Category getCategory();
 	
-	/** Get the keybinding */
+	/** 
+	 * @return the keybinding 
+	 */
 	int getKey();
-	/** Set the keybinding */
+	/** 
+	 * @param key
+	 * 		the keybinding 
+	 */
 	void setKey(int key);
 	
-	/** Get the animation key */
+	/** 
+	 * @return the animation key 
+	 */
 	int getAnimation();
-	/** Set the animation key */
+	/** @param anim
+	 * 		the animation key 
+	 */
 	void setAnimation(int anim);
 	
-	/** Get the enabled state */
+	/** 
+	 * @return the enabled state 
+	 */
 	boolean isEnabled();
-	/** Set the enabled state */
+	/** 
+	 * @param enabled
+	 * 		the enabled state 
+	 */
 	void setEnabled(boolean enabled);
 	
-	/** Get the visible state */
+	/** 
+ 	 * @return the visible state 
+ 	 */
 	boolean isVisible();
-	/** Set the visible state */
+	/** 
+	 * @param visible
+	 * 		the visible state 
+	 */
 	void setVisible(boolean visible);
 	
 	/** Toggle the module */
@@ -55,12 +88,17 @@ public interface IModule {
 	/** Called when the module is disabled */
 	void onDisable();
 	
-	/** Register settings */
+	/**
+	 * Register settings
+	 * @param settings
+	 * 		the settings to be registered
+	 */
 	default void registerSettings(ISetting... settings) {
 		DeltaAPI.getClient().getSettingManager().registerSettings(settings);
 	}
 	/**
 	 * @param name
+	 * 		the setting's name
 	 * @return this module's setting with that name
 	 */
 	default ISetting getSetting(String name) {

@@ -12,6 +12,9 @@ repositories {
     maven {
         url = "https://nkosmos.github.io/maven/" // DeltaAPI
     }
+    maven { 
+        url = 'https://jitpack.io' // LWJEB
+    }
 }
 
 dependencies {

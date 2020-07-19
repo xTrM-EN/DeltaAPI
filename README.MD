@@ -15,8 +15,8 @@ repositories {
 }
 
 dependencies {
-    compile("me.xtrm.delta:delta-api-deobf:2.0.4")  // Version deobf, à utiliser dans un environement de développement
-//  compile("me.xtrm.delta:delta-api:2.0.4")        // Version obf, à utiliser dans un environement compilé
+    implementation("me.xtrm.delta:delta-api-deobf:2.0.4")  // Version deobf, à utiliser dans un environement de développement
+//  implementation("me.xtrm.delta:delta-api:2.0.4")        // Version obf, à utiliser dans un environement compilé
 }
 ```
 

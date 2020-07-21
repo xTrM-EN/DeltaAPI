@@ -38,7 +38,7 @@ public interface ILibrary {
 	 * @return a library's path
 	 */
 	default String getFilePath() {
-		return getGroup() 
+		return getGroup().replace('.', '/')
 				+ "/"
 				+ getName() 
 				+ "/" 

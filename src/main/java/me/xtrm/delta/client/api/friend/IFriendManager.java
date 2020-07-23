@@ -23,7 +23,7 @@ public interface IFriendManager {
 			return;
 		}
 		getFriends().add(username);
-	}
+	} 
 	
 	/**
 	 * @param username
